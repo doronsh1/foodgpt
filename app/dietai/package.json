@@ -1,0 +1,33 @@
+{
+  "name": "dietai",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "ionic:build": "npm run build",
+    "ionic:serve": "vite dev --host"
+  },
+  "dependencies": {
+    "@capacitor/app": "6.0.0",
+    "@capacitor/camera": "^6.0.1",
+    "@capacitor/cli": "6.1.1",
+    "@capacitor/core": "6.1.1",
+    "@capacitor/haptics": "6.0.0",
+    "@capacitor/ios": "6.1.1",
+    "@capacitor/keyboard": "6.0.1",
+    "@capacitor/status-bar": "6.0.0",
+    "@google-cloud/vision": "^4.3.0",
+    "axios": "^1.7.2",
+    "openai": "^4.53.2",
+    "vue": "^3.4.31"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4",
+    "vue-tsc": "^2.0.24"
+  }
+}

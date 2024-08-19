@@ -1,0 +1,7 @@
+{
+  "name": "dietai",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
