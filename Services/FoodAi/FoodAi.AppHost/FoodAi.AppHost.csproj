@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>0cda0f4c-9732-4fbf-9d01-6d2e477d1849</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FoodAi.ApiService\FoodAi.ApiService.csproj" />
+    <ProjectReference Include="..\FoodAi.Persistence\FoodAi.Persistence.csproj" />
+    <ProjectReference Include="..\FoodAi.Web\FoodAi.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.0" />
+    <PackageReference Include="Aspire.Hosting.MongoDB" Version="8.1.0" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

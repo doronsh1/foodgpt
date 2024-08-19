@@ -1,0 +1,54 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodAi.AppHost", "FoodAi.AppHost\FoodAi.AppHost.csproj", "{74878871-04FF-4B93-8CF5-4E2831836C87}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAi.ServiceDefaults", "FoodAi.ServiceDefaults\FoodAi.ServiceDefaults.csproj", "{53A6D1A9-1F1F-41C4-AA83-B47EAF9DD1AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAi.ApiService", "FoodAi.ApiService\FoodAi.ApiService.csproj", "{793B12C8-FE73-41A7-A9F9-FF2D2DC347DB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAi.Web", "FoodAi.Web\FoodAi.Web.csproj", "{57A4E48E-9D79-431C-80B1-9FE72458E535}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAi.Tests", "FoodAi.Tests\FoodAi.Tests.csproj", "{3FFA9F76-D21D-44FA-8E48-173C979D3CD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodAi.Persistence", "FoodAi.Persistence\FoodAi.Persistence.csproj", "{3727B50D-9B48-4882-86D9-9D9EF7A7EB10}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74878871-04FF-4B93-8CF5-4E2831836C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74878871-04FF-4B93-8CF5-4E2831836C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74878871-04FF-4B93-8CF5-4E2831836C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74878871-04FF-4B93-8CF5-4E2831836C87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53A6D1A9-1F1F-41C4-AA83-B47EAF9DD1AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A6D1A9-1F1F-41C4-AA83-B47EAF9DD1AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A6D1A9-1F1F-41C4-AA83-B47EAF9DD1AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A6D1A9-1F1F-41C4-AA83-B47EAF9DD1AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{793B12C8-FE73-41A7-A9F9-FF2D2DC347DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{793B12C8-FE73-41A7-A9F9-FF2D2DC347DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{793B12C8-FE73-41A7-A9F9-FF2D2DC347DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{793B12C8-FE73-41A7-A9F9-FF2D2DC347DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57A4E48E-9D79-431C-80B1-9FE72458E535}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57A4E48E-9D79-431C-80B1-9FE72458E535}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57A4E48E-9D79-431C-80B1-9FE72458E535}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57A4E48E-9D79-431C-80B1-9FE72458E535}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FFA9F76-D21D-44FA-8E48-173C979D3CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FFA9F76-D21D-44FA-8E48-173C979D3CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FFA9F76-D21D-44FA-8E48-173C979D3CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FFA9F76-D21D-44FA-8E48-173C979D3CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3727B50D-9B48-4882-86D9-9D9EF7A7EB10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3727B50D-9B48-4882-86D9-9D9EF7A7EB10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3727B50D-9B48-4882-86D9-9D9EF7A7EB10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3727B50D-9B48-4882-86D9-9D9EF7A7EB10}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E339F09-85EC-4AA2-8F7C-AA0E3ACE1229}
+	EndGlobalSection
+EndGlobal
