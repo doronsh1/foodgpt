@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodAi.AppHost", "FoodAi.AppHost\FoodAi.AppHost.csproj", "{74878871-04FF-4B93-8CF5-4E2831836C87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAi.AppHost", "FoodAi.AppHost\FoodAi.AppHost.csproj", "{74878871-04FF-4B93-8CF5-4E2831836C87}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAi.ServiceDefaults", "FoodAi.ServiceDefaults\FoodAi.ServiceDefaults.csproj", "{53A6D1A9-1F1F-41C4-AA83-B47EAF9DD1AA}"
 EndProject
@@ -12,7 +12,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAi.Web", "FoodAi.Web\Fo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAi.Tests", "FoodAi.Tests\FoodAi.Tests.csproj", "{3FFA9F76-D21D-44FA-8E48-173C979D3CD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodAi.Persistence", "FoodAi.Persistence\FoodAi.Persistence.csproj", "{3727B50D-9B48-4882-86D9-9D9EF7A7EB10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodAi.Persistence", "FoodAi.Persistence\FoodAi.Persistence.csproj", "{3727B50D-9B48-4882-86D9-9D9EF7A7EB10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodAi.MigrationService", "FoodAi.MigrationService\FoodAi.MigrationService.csproj", "{D0B9D7CA-E0D4-4B14-8BDC-06B938166195}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{3727B50D-9B48-4882-86D9-9D9EF7A7EB10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3727B50D-9B48-4882-86D9-9D9EF7A7EB10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3727B50D-9B48-4882-86D9-9D9EF7A7EB10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B9D7CA-E0D4-4B14-8BDC-06B938166195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B9D7CA-E0D4-4B14-8BDC-06B938166195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B9D7CA-E0D4-4B14-8BDC-06B938166195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B9D7CA-E0D4-4B14-8BDC-06B938166195}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

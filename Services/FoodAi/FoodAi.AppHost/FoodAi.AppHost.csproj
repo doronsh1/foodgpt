@@ -11,7 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FoodAi.ApiService\FoodAi.ApiService.csproj" />
-    <ProjectReference Include="..\FoodAi.Persistence\FoodAi.Persistence.csproj" />
+    <ProjectReference Include="..\FoodAi.MigrationService\FoodAi.MigrationService.csproj" />
     <ProjectReference Include="..\FoodAi.Web\FoodAi.Web.csproj" />
   </ItemGroup>
 
