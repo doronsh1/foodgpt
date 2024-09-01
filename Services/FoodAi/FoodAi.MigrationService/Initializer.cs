@@ -24,15 +24,15 @@ namespace FoodAi.MigrationService
             );
             try
             {
-                using var scope = serviceProvider.CreateScope();                
+                //using var scope = serviceProvider.CreateScope();                
 
-                var queries = GenerateQueries();
+                //var queries = GenerateQueries();
 
-                var seeded = await SeedGptQueryDatabaseAsync(
-                scope,
-                queries,
-                stoppingToken
-            );
+                //var seeded = await SeedGptQueryDatabaseAsync(
+                //scope,
+                //queries,
+                //stoppingToken
+           // );
             }
             catch (Exception ex)
             {
@@ -44,7 +44,7 @@ namespace FoodAi.MigrationService
 
         private static async Task<bool> SeedGptQueryDatabaseAsync(
                                          IServiceScope scope,
-                                         IEnumerable<GptQuery> queries,
+                                         IEnumerable<OpenAiTransaction> queries,
                                          CancellationToken stoppingToken
  )
         {
@@ -53,7 +53,7 @@ namespace FoodAi.MigrationService
                 ActivityKind.Client
             );
             var queryService =
-            scope.ServiceProvider.GetRequiredService<GptQueryService>();
+            scope.ServiceProvider.GetRequiredService<MongoDbService>();
 
             var empty = await queryService.IsEmptyCollectionAsync();
 
@@ -67,13 +67,13 @@ namespace FoodAi.MigrationService
 
             return true;
         }
-        private static List<GptQuery> GenerateQueries()
+        private static List<OpenAiTransaction> GenerateQueries()
         {
-            var faker = new Faker<GptQuery>()
-                .RuleFor(p => p.Id, f => f.Random.AlphaNumeric(10))
+            var faker = new Faker<OpenAiTransaction>()
+                //.RuleFor(p => p.Id, f => f.Random.AlphaNumeric(10))
                 .RuleFor(p => p.CreatedAt, f => f.Date.Past())
                 .RuleFor(p => p.UserId, f => f.Random.AlphaNumeric(10))
-                .RuleFor(p => p.Query, f => (""));
+                .RuleFor(p => p.Prompt, f => (""));
             
             var queries = faker.Generate(1).ToList();
             

@@ -10,15 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FoodAi.AiService\FoodAi.AiService.csproj" />
     <ProjectReference Include="..\FoodAi.ApiService\FoodAi.ApiService.csproj" />
     <ProjectReference Include="..\FoodAi.MigrationService\FoodAi.MigrationService.csproj" />
     <ProjectReference Include="..\FoodAi.Web\FoodAi.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.0.0" />
-    <PackageReference Include="Aspire.Hosting.MongoDB" Version="8.1.0" />
-    <PackageReference Include="Aspire.Hosting.Redis" Version="8.0.0" />
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.2.0" />
+    <PackageReference Include="Aspire.Hosting.MongoDB" Version="8.2.0" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="8.2.0" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="8.2.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
   </ItemGroup>
 
 </Project>

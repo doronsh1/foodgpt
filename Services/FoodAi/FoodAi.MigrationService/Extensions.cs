@@ -21,7 +21,7 @@ namespace FoodAi.MigrationService
 
             var mongoSettings = builder.Configuration.GetSection(nameof(MongoSettings)).Get<MongoSettings>();
 
-            services.AddSingleton<GptQueryService>();
+            services.AddSingleton<MongoDbService>();
 
             return services;
         }

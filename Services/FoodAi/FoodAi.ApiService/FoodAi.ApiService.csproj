@@ -4,16 +4,20 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>ced01519-df82-4b32-b784-3a9bf4550a59</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.MongoDB.Driver" Version="8.1.0" />
+    <PackageReference Include="Aspire.MongoDB.Driver" Version="8.2.0" />
+    <PackageReference Include="Aspire.RabbitMQ.Client" Version="8.2.0" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.5" />
 	<PackageReference Include="Riok.Mapperly" Version="3.6.0" />
-	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.2" />
+	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
 	  <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FoodAi.MessageQueue\FoodAi.MessageQueue.csproj" />
     <ProjectReference Include="..\FoodAi.Persistence\FoodAi.Persistence.csproj" />
     <ProjectReference Include="..\FoodAi.ServiceDefaults\FoodAi.ServiceDefaults.csproj" />
   </ItemGroup>

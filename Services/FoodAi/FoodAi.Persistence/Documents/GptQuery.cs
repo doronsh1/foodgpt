@@ -8,23 +8,34 @@ using System.Threading.Tasks;
 
 namespace FoodAi.Persistence.Documents
 {
-    public class GptQuery
+    public class OpenAiTransaction
     {
-
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; } = default!;
-         
-    
+        public ObjectId Id { get; set; } = default!;    
         public string UserId { get; set; } = default!;
-
         [BsonElement("CreatedAt")]
         [BsonRepresentation(BsonType.DateTime)]
-        public DateTimeOffset CreatedAt { get; set; }
+        public DateTimeOffset CreatedAt { get; set;}
+        public string Prompt { get; set; } = null!;
+        public string ImageName { get; set; } = null!;
+        public Guid OperationId { get; set; } = default!;
+        public OpenAIResponse OpenAIResponse { get; set; } = null!;
+    }
 
-        public string Query { get; set; } = null!;
+    public class OpenAIResponse
+    {
+        public string Content { get; set; } = null!;
+        public Usage Usage { get; set; } = null!;
+        public string Model { get; set; } = null!;
+        public string Id { get; set; } = null!;
 
-        public Guid? PhotoId { get; set; } = null!;
+    }
 
+    public class Usage
+    {
+        public int TotalTokens { get; set; }
+        public int InputTokens { get; set; }
+        public int OutputTokens { get; set; }
     }
 }

@@ -2,13 +2,18 @@ using FoodAi.ApiService;
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddUserSecrets<Program>();
+
 builder.AddApplicationServices();
+
 // Add service defaults & Aspire components.
 builder.AddServiceDefaults();
 
 // Add services to the container.
 builder.Services.AddProblemDetails();
 
+builder.AddRabbitMQClient("messaging");
 builder.AddMongoDBClient("foodai");//mongodb://admin1:j9Go8TSJjDL3@localhost:49720/?authSource=admin
 
 var services = builder.Services;
@@ -22,6 +27,7 @@ services.ConfigureHttpJsonOptions(json =>
     json.SerializerOptions.WriteIndented = true;
 
 });
+
 var app = builder.Build();
 
  
