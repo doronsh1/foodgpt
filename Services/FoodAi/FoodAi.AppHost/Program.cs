@@ -12,7 +12,7 @@ var messageBus = builder
     .WithDataVolume()
     .WithManagementPlugin();
 
-var dbServer = builder.AddMongoDB("mongodb")
+var dbServer = builder.AddMongoDB("mongodb", 49320)
     //.WithEnvironment("MONGO_INITDB_ROOT_USERNAME", "admin1")
     //.WithEnvironment("MONGO_INITDB_ROOT_PASSWORD", "j9Go8TSJjDL3")
     .WithDataVolume()

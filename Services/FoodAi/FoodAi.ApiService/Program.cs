@@ -7,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddUserSecrets<Program>();
 
+builder.WebHost.UseUrls("https://0.0.0.0:7475");
+
 builder.AddApplicationServices();
 
 // Add service defaults & Aspire components.

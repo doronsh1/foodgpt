@@ -53,11 +53,15 @@ namespace FoodAi.AiService
               // new SystemChatMessage(""),
                new UserChatMessage(usermessages)
             };
+                DateTime start = DateTime.Now;
                 var completion = await _openAIClient.CompleteChatAsync(messages);
+                DateTime end = DateTime.Now;
                 if(completion.Value == null)
                 {
                     return null!;
                 }
+                var time = end - start;
+                _logger.LogInformation($"Time taken to complete chat: {end - start}");
                 OpenAIResponse openAIResponse = new OpenAIResponse()
                 {
                     Id = completion.Value.Id,
