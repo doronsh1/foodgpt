@@ -83,7 +83,7 @@ const uploadPhoto = async () => {
          },
       ],
     });
-    response.value = result.choices[0].message.content;
+    //response.value = result.choices[0].message.content;
     console.log('Response from API:', result);
   } catch (error) {
     console.error('Error uploading photo:', error);

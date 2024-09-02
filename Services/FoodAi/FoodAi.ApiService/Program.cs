@@ -3,6 +3,8 @@ using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.WebHost.UseUrls("https://0.0.0.0:7475");
+
 builder.Configuration.AddUserSecrets<Program>();
 
 builder.WebHost.UseUrls("https://0.0.0.0:7475");
