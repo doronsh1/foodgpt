@@ -3,7 +3,15 @@ using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.WebHost.UseUrls("https://0.0.0.0:7475");
+builder.WebHost.UseUrls("http://0.0.0.0:5305;https://0.0.0.0:7475");
+
+//builder.WebHost.UseKestrel(options =>
+//{
+//    options.ListenAnyIP(7475, listenOptions =>
+//    {
+//        listenOptions.UseHttps("C:\\tmp\\ssl\\devcert.pfx", "openaidevssl");
+//    });
+//});
 
 builder.Configuration.AddUserSecrets<Program>(); 
 
@@ -14,6 +22,8 @@ builder.AddServiceDefaults();
 
 // Add services to the container.
 builder.Services.AddProblemDetails();
+
+//builder.AddAzureBlobClient("BlobConnection");
 
 builder.AddRabbitMQClient("messaging");
 builder.AddMongoDBClient("foodai");//mongodb://admin1:j9Go8TSJjDL3@localhost:49720/?authSource=admin
@@ -29,10 +39,12 @@ services.ConfigureHttpJsonOptions(json =>
     json.SerializerOptions.WriteIndented = true;
 
 });
+builder.AddRedisOutputCache("cache");
 
 var app = builder.Build();
 
- 
+app.UseCors("AllowAllOrigins");
+app.UseOutputCache();
 // Configure the HTTP request pipeline.
 app.UseExceptionHandler();
 

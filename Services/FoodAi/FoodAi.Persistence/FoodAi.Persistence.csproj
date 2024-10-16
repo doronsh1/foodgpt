@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.MongoDB.Driver" Version="8.2.0" />
-    <PackageReference Include="Azure.Storage.Blobs" Version="12.21.2" />
+    <PackageReference Include="Aspire.MongoDB.Driver" Version="8.2.1" />
+    <PackageReference Include="Aspire.StackExchange.Redis" Version="8.2.1" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.22.1" />
     <PackageReference Include="MongoDbGenericRepository" Version="1.6.1" />
   </ItemGroup>
 

@@ -5,6 +5,8 @@ using FoodAi.AiService.Configuration;
 using FoodAi.Persistence.Documents;
 using Amazon.Runtime.Internal.Util;
 using Microsoft.Extensions.Logging;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
 
 namespace FoodAi.AiService
 {
@@ -35,7 +37,7 @@ namespace FoodAi.AiService
 
         public async Task<string> GeneratePrompt()
         {
-            var prompt = "How many calories are are in this meal? put the whole answer in a json format";
+            var prompt = "How many calories, Proteins, Carbs and fats, are are in this meal? give me a json that looks like this {calories: number, protien: number, carbs: number, fat: number, break-down: text }";
             return await Task.FromResult<string>(prompt);
         }
         
@@ -62,17 +64,19 @@ namespace FoodAi.AiService
                 }
                 var time = end - start;
                 _logger.LogInformation($"Time taken to complete chat: {end - start}");
+                var content = ExtractJson(completion.Value.Content.First().Text);
                 OpenAIResponse openAIResponse = new OpenAIResponse()
                 {
                     Id = completion.Value.Id,
-                    Content = completion.Value.Content.First().Text,
+                    Content = content.ToString()!,
                     Model = completion.Value.Model,
                     Usage = new Usage()
                     {
                         InputTokens = completion.Value.Usage.InputTokens,
                         OutputTokens = completion.Value.Usage.OutputTokens,
                         TotalTokens = completion.Value.Usage.TotalTokens
-                    }
+                    },
+                    ResponseTime = time
                 };
                 return openAIResponse!;
                 //            var chatCompletionRequest = await _openAIClient.ChatEndpoint
@@ -83,6 +87,23 @@ namespace FoodAi.AiService
                 _logger.LogError(ex, ex.Message);
                 return null!;
             }
+        }
+        private   string ExtractJson(string input)
+        {
+            string pattern = @"(\{(?:[^{}]|(?<open>\{)|(?<-open>\}))+(?(open)(?!))\})";
+
+            MatchCollection matches = Regex.Matches(input, pattern);
+
+            foreach (Match match in matches)
+            {
+                string json = match.Value;
+                //Console.WriteLine("Found JSON: " + json);
+                return json;
+                // Parse the JSON
+                //var obj = JObject.Parse(json);
+                //Console.WriteLine("Parsed JSON: " + obj.ToString());
+            }
+            return null!;
         }
     }  
 }

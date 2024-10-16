@@ -8,11 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.MongoDB.Driver" Version="8.2.0" />
-    <PackageReference Include="Aspire.RabbitMQ.Client" Version="8.2.0" />
+    <PackageReference Include="Aspire.Azure.Storage.Blobs" Version="8.2.1" />
+    <PackageReference Include="Aspire.MongoDB.Driver" Version="8.2.1" />
+    <PackageReference Include="Aspire.RabbitMQ.Client" Version="8.2.1" />
+    <PackageReference Include="Aspire.StackExchange.Redis" Version="8.2.1" />
+    <PackageReference Include="Aspire.StackExchange.Redis.OutputCaching" Version="8.2.1" />
     <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.5" />
 	<PackageReference Include="Riok.Mapperly" Version="3.6.0" />
-	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
+	<PackageReference Include="Swashbuckle.AspNetCore" Version="6.8.0" />
 	  <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
   </ItemGroup>
 

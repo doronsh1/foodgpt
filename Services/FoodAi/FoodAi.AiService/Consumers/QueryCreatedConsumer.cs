@@ -1,4 +1,5 @@
 ﻿using Amazon.Runtime.Internal.Endpoints.StandardLibrary;
+using Azure.Storage.Blobs;
 using FoodAi.AiService.Models;
 using FoodAi.MessageQueue.Events;
 using FoodAi.Persistence;
@@ -18,6 +19,7 @@ namespace FoodAi.AiService.Consumers
 {
     public class QueryCreatedConsumer(OpenAIService _openAIService,
         ILogger<QueryCreatedConsumer> _logger,
+        //BlobServiceClient _blobClient,
         AzureBlobStorageService _blobStorageService,
         MongoDbService mongoDbService) : IConsumer<QueryCreatedEvent>
     {
@@ -27,11 +29,21 @@ namespace FoodAi.AiService.Consumers
             _logger.LogDebug("Query created event consumed");             
         }
 
+        //private async Task<byte[]> DownlaodImage(string imageUrl)
+        //{
+        //    BlobContainerClient containerClient = _blobClient.GetBlobContainerClient("images");
+        //    //BlobClient blobClient = containerClient.GetBlobClient(imageUrl);
+        //   // var imageBytes = await blobClient.DownloadContentAsync();
+        //    return imageBytes.Value.Content.ToArray();
+        //}
+
         public async Task Complete(QueryCreatedEvent queryCreatedEvent, CancellationToken cancellationToken = default)
         {
             string prompt = await _openAIService.GeneratePrompt();
-
+            
             var imageBytes = await _blobStorageService.DownloadImageAsync(queryCreatedEvent.ImageUrl);
+            //var imageBytes = await _blobClient.Do(queryCreatedEvent.ImageUrl);
+            //var imageBytes = await DownlaodImage(queryCreatedEvent.ImageUrl);
             
             var result = await _openAIService.RunChatCompletionAsync(prompt, imageBytes);
             

@@ -13,6 +13,8 @@ builder.AddApplicationServices();
 builder.AddServiceDefaults();
 builder.Configuration.AddUserSecrets<Program>();
 
+//builder.AddAzureBlobClient("BlobConnection");
+
 // Add services to the container.
 builder.Services.AddProblemDetails();
 

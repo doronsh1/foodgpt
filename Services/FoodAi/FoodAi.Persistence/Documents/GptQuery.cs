@@ -29,7 +29,8 @@ namespace FoodAi.Persistence.Documents
         public Usage Usage { get; set; } = null!;
         public string Model { get; set; } = null!;
         public string Id { get; set; } = null!;
-
+        public TimeSpan ResponseTime { get; set; } = default;
+        
     }
 
     public class Usage

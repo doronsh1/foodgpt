@@ -19,6 +19,7 @@ namespace FoodAi.ApiService
             services.AddSingleton<AzureBlobStorageService>();
             services.AddSingleton<StorageService>();
             services.AddSingleton<MongoDbService>();
+            services.AddScoped<RedisCacheService>();
 
             services.AddMassTransit(x =>
             {
@@ -34,6 +35,17 @@ namespace FoodAi.ApiService
                 );
 
             });
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader()
+                           .WithExposedHeaders("Location", "Date", "Server");
+                });
+            });
+
             return services;
         }
     }

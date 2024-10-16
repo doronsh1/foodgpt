@@ -19,11 +19,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.RabbitMQ.Client" Version="8.2.0" />
+    <PackageReference Include="Aspire.Azure.Storage.Blobs" Version="8.2.1" />
+    <PackageReference Include="Aspire.RabbitMQ.Client" Version="8.2.1" />
     <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="OpenAI" Version="2.0.0-beta.10" />
     <PackageReference Include="System.Text.Json" Version="8.0.4" />
   </ItemGroup>
