@@ -11,12 +11,15 @@ def image_to_base64(image_path):
 def gpt_analyze_image(source_img_url,
                       prompt="Please analyze the uploaded image and determine whether it contains any type of food or beverage. \
                         1. If the image does not contain any food or beverage, respond with: ‘The image does not contain any food or beverage and is not viable for analysis.’ \
-                        2. If the image contains food or beverage, list each identifiable item in the image and provide the estimated amount of calories for each item. \
+                        2. If the image contains food or beverage, list each identifiable item in the image and provide the estimated amount of calories, fiber, protein and fat for each item. \
                     Format your response as the following example: \
-                        • Apple: xyz calories \
-                        • Plain Omelette: abc calories \
-                        • Orange Juice: lmn calories \
-                        Total amount of calories: ..."
+                        • Apple: xyz calories, xxx fiber, yyy protein, zzz fats \
+                        • Plain Omelette: abc calories, aaa fiber, bbb protein, ccc fats \
+                        • Orange Juice: lmn calories, lll fiber, mmm protein, nnn fats \
+                        Total amount of calories: ... \
+                        Total amount of fiber: ... \
+                        Total amount of protein: ... \
+                        Total  amount of fats: ..."
                     ):
     # Initialize the OpenAI client with your API key
     # Load and encode the image
@@ -50,7 +53,7 @@ def gpt_analyze_image(source_img_url,
         response_format={
             "type": "json_schema",
             "json_schema": {
-                "name": "math_response",
+                "name": "calories_count",
                 "strict": True,
                 "schema": {
                     "type": "object",
@@ -72,7 +75,53 @@ def gpt_analyze_image(source_img_url,
                             }
                         },
                         "final_answer": {
-                            "type": "string"
+                            "type": "object",
+                            "properties": {
+                                "calories": {
+                                    "type": "number"
+                                },
+                                "fiber": {
+                                    "type": "object",
+                                    "properties": {
+                                        "value":{
+                                            "type": "number"
+                                        },
+                                        "units":{
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["value", "units"],
+                                    "additionalProperties": False
+                                },
+                                "protein": {
+                                    "type": "object",
+                                    "properties": {
+                                        "value":{
+                                            "type": "number"
+                                        },
+                                        "units":{
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["value", "units"],
+                                    "additionalProperties": False
+                                },
+                                "fat": {
+                                    "type": "object",
+                                    "properties": {
+                                        "value":{
+                                            "type": "number"
+                                        },
+                                        "units":{
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": ["value", "units"],
+                                    "additionalProperties": False
+                                },
+                            },
+                            "required": ["calories", "fiber", "protein", "fat"],
+                            "additionalProperties": False
                         }
                     },
                     "required": ["steps", "final_answer"],
@@ -88,20 +137,20 @@ def gpt_analyze_image(source_img_url,
 
 if __name__ == '__main__':
     im_path = "/Users/gilsheinbaum/Desktop/Screenshot 2024-07-29.png"
-    test_prompt = """
-                    Analyze the image and determine whether it contains any type of food or beverage.
-                        1. If the image does not contain any food or beverage, respond with: ‘The image does not 
-                        contain any food or beverage and is not viable for analysis.’
-                        2. If the image contains food or beverage, list each identifiable item in the image and provide 
-                        the estimated amount of calories for each item. If an item repeats itself, count the amount of repetitions and provide the breakdown accordingly.
-    
-                    Format your response as the following example:
-                        • Apple: xyz calories
-                        • Plain Omelette: abc calories
-                        • Orange Juice: lmn calories
-                        
-                        Total amount of calories: ...
-                    """
+    # test_prompt = """
+    #                 Analyze the image and determine whether it contains any type of food or beverage.
+    #                     1. If the image does not contain any food or beverage, respond with: ‘The image does not
+    #                     contain any food or beverage and is not viable for analysis.’
+    #                     2. If the image contains food or beverage, list each identifiable item in the image and provide
+    #                     the estimated amount of calories, fiber, protein and fats for each item. If an item repeats itself, count the amount of repetitions and provide the breakdown accordingly.
+    #
+    #                 Format your response as the following example:
+    #                     • Apple: xyz calories, xxx fiber, yyy protein, zzz fats
+    #                     • Plain Omelette: abc calories, aaa fiber, bbb protein, ccc fats
+    #                     • Orange Juice: lmn calories, lll fiber, mmm protein, nnn fats
+    #
+    #                     Total amount of calories: ...
+    #                 """
 
     res = gpt_analyze_image(source_img_url=im_path)
     print(res)
