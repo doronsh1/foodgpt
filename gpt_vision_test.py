@@ -8,13 +8,27 @@ def image_to_base64(image_path):
         return base64.b64encode(image_file.read()).decode('utf-8')
 
 
-def gpt_compare_images(source_img_url,
-                       prompt="OUR PROMPT"):
+def gpt_analyze_image(source_img_url,
+                      prompt="Please analyze the uploaded image and determine whether it contains any type of food or beverage. \
+                        1. If the image does not contain any food or beverage, respond with: ‘The image does not contain any food or beverage and is not viable for analysis.’ \
+                        2. If the image contains food or beverage, list each identifiable item in the image and provide the estimated amount of calories for each item. \
+                    Format your response as the following example: \
+                        • Apple: xyz calories \
+                        • Plain Omelette: abc calories \
+                        • Orange Juice: lmn calories \
+                        Total amount of calories: ..."
+                    ):
     # Initialize the OpenAI client with your API key
-    client = OpenAI(api_key="")
+    # Load and encode the image
+
+    enc_im = image_to_base64(source_img_url)
+
+    client = OpenAI(api_key="sk-proj-VEIoyafXNeKNgh2v4CfTT3BlbkFJ7pJQ9gtLPfZZid2s5gpR")
+                    # organization="org-ApWwCbdvTUruFjmOZLm8vkJ9",
+                    # project="proj_f59VIHf6wqpOzKZ926VCb0Ec")
 
     response = client.chat.completions.create(
-        model="gpt-4-vision-preview",
+        model="gpt-4o-2024-08-06",
         messages=[
             {
                 "role": "user",
@@ -26,17 +40,68 @@ def gpt_compare_images(source_img_url,
                     {
                         "type": "image_url",
                         "image_url": {
-                            "url": source_img_url
-                        },
+                            "url": f"data:image/jpeg;base64,{enc_im}"
+                        }
+                        # "detail": "high"
                     },
                 ],
             }
         ],
-        max_tokens=500
+        response_format={
+            "type": "json_schema",
+            "json_schema": {
+                "name": "math_response",
+                "strict": True,
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "steps": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "explanation": {
+                                        "type": "string"
+                                    },
+                                    "output": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": ["explanation", "output"],
+                                "additionalProperties": False
+                            }
+                        },
+                        "final_answer": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["steps", "final_answer"],
+                    "additionalProperties": False
+                }
+            }
+        },
+        max_tokens=1000
     )
 
     return response.choices[0].message.content
 
 
 if __name__ == '__main__':
-    pass
+    im_path = "/Users/gilsheinbaum/Desktop/Screenshot 2024-07-29.png"
+    test_prompt = """
+                    Analyze the image and determine whether it contains any type of food or beverage.
+                        1. If the image does not contain any food or beverage, respond with: ‘The image does not 
+                        contain any food or beverage and is not viable for analysis.’
+                        2. If the image contains food or beverage, list each identifiable item in the image and provide 
+                        the estimated amount of calories for each item. If an item repeats itself, count the amount of repetitions and provide the breakdown accordingly.
+    
+                    Format your response as the following example:
+                        • Apple: xyz calories
+                        • Plain Omelette: abc calories
+                        • Orange Juice: lmn calories
+                        
+                        Total amount of calories: ...
+                    """
+
+    res = gpt_analyze_image(source_img_url=im_path)
+    print(res)
