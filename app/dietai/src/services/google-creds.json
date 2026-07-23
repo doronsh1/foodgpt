@@ -1,8 +1,8 @@
 {
   "type": "service_account",
   "project_id": "fitness-app-213313",
-  "private_key_id": "d2964b9af0dfbd8b0d61557629374205fc7ccb5a",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDIejKqJo2ic8H8\nyrTgjxpVZTEgLEwHDB9jr4spGGYHNhCZjsHEu+1o6oPtwCGjKnMw+MKZ3BCFPfjY\nYoJqS/fINvCn2boQ/NJDgOr9sNBaBP3h9ExDiM9jJDz2ltrfBxucmbgJTvcH/B7D\nkH6HaQEW3hXZM6sBlNUDuTZxHhjE70ByH6GNVZ6Ktb94GraISIcMXh/DuQ9Rnb1X\n2CDwWBNIZWdmHPvw/RVJJdtVnspIOxTcgNg2jdZcAt3iZUUH2l9LUjwqufNy9rCc\n7sUlJDqKFhE7AS6WhgR5CuDkgBWHXr4Igpfdc/mUPjB7T8EYONEE9DgR42+VloS9\nFpJzCf8TAgMBAAECggEADlLgzNRtWTaRHSk0jDjdRk2xGV3g3r4IfhxcQobqP0in\nHfmbsZ1FxLHA1Ftea+SMD2suqESXb5Wycm9zZvnfjdATGMMPLsiJk2YiJBceg9gI\ndbz5N/gN7UT5EBtOLxI4cFNxWUTplIn4fruTtsQTXllm0TqGVNoX8CirEaD3Xxai\nr8+KfsIR/V5Z+dQJ1ijnc8QWtsocde/vgPJCAKLHVEMA6bhhSlEifIN7Ql5J8Tly\n35nwB71PgFoOdw8a22QWFJEEDFEx7ix/TtKpyTuA67MXbTarEldNHnI7W0y8xPBD\njuAFv+eII9A7SwDlN3Uo/mJkqACqbiMbdjjG7VhtTQKBgQDoDYbjMAr6tJ6vAxuq\nk3zVriRO1rx+1A46JIX+03EbG/ftEoZYwXeT1VmItNdM22GUKxruk5ItRbp/1YkY\nV96zphvJZ0E6zROgdb7A2crmMEdPY0eee4sDnKCA+T3/RxjYCT3piIzLXN1S+Mjp\ndJzmf5mTN6biZhDB/jFVA0R6dQKBgQDdKn7eAMGXidvyBb0aivAuF5Z8U/heTJuZ\nIVjOVZvTPZqLiS2O1kYt5+wnchZIOpzB1Nzs9kG1hBZoUnsHEtUg6F8eJBclbKZS\n6r/oFucqrg5VW4F0RuqFpRiRwB349vvfic1FcrYHPnAj4wMLVtRXA63aG74ugU8q\naZg6EU6SZwKBgHuOUEcBWqc4qtFG12FQnIRt75kmz0C8ikK9FbekP7IOh0jstynl\nAVVuoPigSY77tI4fEXz8iDWgzfeo7BFRIBwJkvv/BYVYkl26s/GdRWKhTCbiFs00\nvMUUjYV+sFsPMRQ+f3+sHENf09yM6PUdCTnVsSDo3evoKn4QaZX5YmnNAoGAOowW\nW6StmvUWsYINZmpjXIBICQ+djzEOe8IVJUIKZyhGsiuVUNuuZlaf8G1GMsa5WqKD\n/YLPMEMQP3ueL+gvXW/GRk9dhT225fpY5RKzDVxYVQZNRb/EM67ZyzOle5O+Z5Wu\nLnVIdLB1tTpSQv0wZvyFWFjBxsPadirP7odIWn8CgYEAz6XyNS9ZExFBSEYkTME5\numBy3NJb1c3u4iFuw8jU/LibjJXqFlLLarpDMDhWfNdDEYosX7HjJ51b3n0TezEn\nuCgPUbtYAy8874EziIYXCi/tNYDjrCL/9CmlC3NMLPOuLoj8X+XKxYqtpMpmbYqB\n1zQVfS4V3uTtvZ/SUeKb560=\n-----END PRIVATE KEY-----\n",
+  "private_key_id": "{KEY_ID}",
+  "private_key": "{KEY}",
   "client_email": "dietai@fitness-app-213313.iam.gserviceaccount.com",
   "client_id": "105808215388890523724",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
